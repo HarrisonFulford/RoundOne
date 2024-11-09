@@ -20,6 +20,17 @@ router.post('/create', async (req, res) => {
     }
 })
 
+// Get all questions
+router.get('/all', async (req, res) => {
+    try {
+        const questions = await Model.find();
+
+        res.status(200).json(questions);
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+    }
+});
+
 // Get by company method
 router.get('/find', async (req, res) => {
     try {
