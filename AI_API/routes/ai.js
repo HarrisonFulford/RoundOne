@@ -9,13 +9,15 @@ router.post('/evaluate', async (req, res) => {
     const { question, responseText, traits } = req.body;
     const responseFormat = `{
                                 "trait1": 9,
+                                "trait1evaluation": "You got a score of 9 because..."
                                 "trait2": 4.5
+                                ""trait2evaluation": "You got a score of 4.5 because..."
                             }`;
     try {
         const chat = await client.chat(
             {
                 model: "command-r",
-                message: `Evaluate the following response according to each trait on 10 ${traits}, to the question ${question} \n Response: \n${responseText}. \nRespond with no extra words in this format: ${responseFormat}, in the order of traits given`
+                message: `Evaluate the following response according to each trait on 100 ${traits}, to the question ${question} \n Response: \n${responseText}. \nRespond with no extra words in this format: ${responseFormat}, in the order of traits given`
             }
         )
         const jsonResponse = JSON.parse(chat.chatHistory[1].message);
