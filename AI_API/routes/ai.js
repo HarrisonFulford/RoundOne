@@ -7,12 +7,18 @@ const router = express.Router();
 // Evaluate user response
 router.post('/evaluate', async (req, res) => {
     const { question, responseText, traits } = req.body;
-    const responseFormat = `{
-                                "trait1": 9,
-                                "trait1evaluation": "You got a score of 9 because..."
-                                "trait2": 4.5
-                                ""trait2evaluation": "You got a score of 4.5 because..."
-                            }`;
+    const responseFormat = `[
+        {
+            "trait": "Trait One",
+            "score": 9,
+            "evaluation": "You got a score of 9 because..."
+        },
+        {
+            "trait": "Trait Two",
+            "score": 4.5,
+            "evaluation": "You got a score of 4.5 because..."
+        }
+    ]`;
     try {
         const chat = await client.chat(
             {
