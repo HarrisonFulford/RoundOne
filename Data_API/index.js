@@ -3,6 +3,7 @@
 require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
+const cors = require('cors');
 const mongoString  = process.env.DATABASE_URL
 
 // Connect to database
@@ -18,6 +19,20 @@ database.once('connected', () => {
 // set up express app
 const app = express();
 app.use(express.json());        // allows data in JSON format
+
+app.use(cors());                // allow all origins for now
+
+// const allowedOrigins = ['http://localhost:3000', 'https://roundone.onrender.com/'];
+// const corsOptions = {
+//   origin: (origin, callback) => {
+//     if (!origin || allowedOrigins.includes(origin)) {
+//       callback(null, true);
+//     } else {
+//       callback(new Error('Not allowed by CORS'));
+//     }
+//   },
+// };
+// app.use(cors(corsOptions));
 
 // add routes
 const userRoutes = require('./routes/users');
