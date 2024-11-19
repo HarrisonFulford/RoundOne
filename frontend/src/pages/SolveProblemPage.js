@@ -7,7 +7,6 @@ export default function SolveProblemPage() {
 
   // Access the passed data
   const { questionDetails } = location.state || {};
-  console.log("questionDetails", questionDetails);
 
   // Local vars
   const [question, setQuestion] = useState(null);
