@@ -1,38 +1,50 @@
-.App {
+body {
+  min-height: '100vh';
+  box-sizing: 'border-box';
+}
+.app-container {
+  background-color: #e5e5e5;
+  min-height: 100vh; /* Ensures full height for the background */
+  display: flex; /* Optional for centering */
+  flex-direction: column; /* Optional for flex layouts */
+}
+.card {
+  border-radius: 0;
+  background-color: "#f9f9f9";
+  text-align: "left";
+}
+.card-header {
+  background-color: '#f7f7f7';
+}
+/* Override specific form-control properties */
+textarea.form-control {
+  padding-left: 10px;  /* Adjust padding */
+  padding-top: 10px;    /* Adjust padding */
+  background-color: transparent; /* Transparent background */
+  border-radius: 0;   /* Remove border radius if needed */
+  border: 1px solid #ccc;  /* Custom border */
+}
+
+textarea.form-control::placeholder {
+  color: #aaa;
+  font-style: italic;
+}
+
+.nav-link.active-link {
+  /*color: #7064D2; */
+  color: #263ece;
+  border-bottom: 2px solid #263ece;
+}
+
+.not-found-container {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.not-found-title {
+  font-size: 3rem;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.not-found-message {
+  font-size: 1.5rem;
+  color: #555;
 }
