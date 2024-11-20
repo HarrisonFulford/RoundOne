@@ -1,0 +1,1 @@
+export const AI_API_URL = process.env.REACT_APP_AI_API_URL;

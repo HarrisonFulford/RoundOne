@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom';
+import { AI_API_URL } from '../utils/env';
 
 export default function SolveProblemPage() {
   const navigate = useNavigate();
@@ -50,7 +51,8 @@ export default function SolveProblemPage() {
       ]
       */
       // Switch to feedback page
-      const response = await fetch("/ai/evaluate", requestOptions);
+      console.log("API_URL", AI_API_URL);
+      const response = await fetch(AI_API_URL + "/ai/evaluate", requestOptions);
       const feedbackData = await response.json();
       navigate("/feedback", { state: { responseData: feedbackData, problem: questionDetails } });
   
