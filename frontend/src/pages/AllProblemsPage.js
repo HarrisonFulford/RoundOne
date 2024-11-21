@@ -4,8 +4,8 @@ export default function AllProblemsPage() {
   const navigate = useNavigate();
   const exampleProblems = [
     {
-      "questionTitle": "Candidate Name",
-      "question": "What's your name?",
+      "questionTitle": "Candidate Description",
+      "question": "Tell me about your self?",
       "traits": ["empathy", "confidence"]
     },
     {
